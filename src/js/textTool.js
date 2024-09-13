@@ -32,22 +32,15 @@ export function enableTextTool() {
 	canvas.addEventListener('click', handleCanvasClick);
 }
 
-document.addEventListener('click', (e) => {
+canvas.addEventListener('click', (e) => {
     if (isTextActive) {
         console.log("Text input is active. Please press Enter to finalize.");
-        cancel
     }
 });
 
 // Handle text placement or editing on canvas click
 function handleCanvasClick(e) {
     if (!isTextTool || isTextActive) return;
-
-    console.log(isTextActive);
-	if (isTextActive) {
-		console.log("Text input is active. Please press Enter to finalize.");
-		return;  // Don't allow further clicks until text input is complete
-	}
 
 	// Check if clicking on existing text to edit
 	const clickedText = detectTextClick(e.clientX, e.clientY);
@@ -84,7 +77,6 @@ function handleCanvasClick(e) {
 	} else if (!isTextActive) {
 		// Add new text block
 		isTextActive = true;
-        console.log(isTextActive);
 		saveState("text placement", textBlocks);
 		textPosition = { x: e.clientX, y: e.clientY };
 
@@ -117,7 +109,6 @@ function handleCanvasClick(e) {
 				liveTextInput.style.display = 'none';
 				isTextActive = false;
 				console.log("New text added:", liveTextInput.value);
-				canvas.addEventListener('click', handleCanvasClick);  // Re-enable canvas click listener
 				saveState("text placement", textBlocks);  // Save the state after adding the text
 			}
 		};

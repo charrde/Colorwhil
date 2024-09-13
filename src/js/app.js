@@ -12,6 +12,7 @@ enableDrawing();
 document.querySelector('#brush').addEventListener('click', activateBrush);
 document.querySelector('#eraser').addEventListener('click', activateEraser);
 document.querySelector('#textTool').addEventListener('click', enableTextTool);
+document.querySelector('#circleBrush').addEventListener('click',  activateCircleBrushTool);
 
 // Undo and Redo Buttons
 document.querySelector('#undo').addEventListener('click', () => undo(textBlocks));

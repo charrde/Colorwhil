@@ -1,6 +1,7 @@
 export let isPainting = false;
 export let isErasing = false;
 export let isTextTool = false;
+export let usingCircleBrush = false;
 
 export function resetState() {
 	isPainting = false;
@@ -18,6 +19,12 @@ export function activateBrushTool() {
 	resetState();
 	isPainting = true;
 	console.log("Brush tool activated");
+}
+
+export function activateCircleBrushTool() {
+	resetState();
+	usingCircleBrush = true;
+	console.log("Circle brush tool activated");
 }
 
 export function activateEraserTool() {

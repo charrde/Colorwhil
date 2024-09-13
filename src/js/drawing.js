@@ -8,6 +8,7 @@ let drawing = false;
 export function enableDrawing() {
 	canvas.addEventListener('mousedown', (e) => {
 		if (isPainting) {
+			ctx.lineWidth = document.querySelector('#brushSize').value; 
             ctx.strokeStyle = document.querySelector('#colorPicker').value;  // Set brush color based on color picker
 			saveState("drawing/erasing", textBlocks);
 			drawing = true;
