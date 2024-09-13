@@ -1,0 +1,47 @@
+body,
+html {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	cursor: default;
+}
+
+canvas {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+#toolbar {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	background-color: #E6E6E6;
+	padding: 10px;
+	border-radius: 5px;
+	box-shadow: inset 0 0 0.5px 1px hsl(0, 0%, 50%, 0.075), 0 0 0 1px hsla(0, 0%, 0%, 0.05), 0 0.3px 0.4px hsla(0, 0%, 0%, 0.02), 0 0.9px 1.5px hsla(0, 0%, 0%, 0.045), 0 3.5px 6px hsla(0, 0%, 0%, 0.09);
+	z-index: 1000;
+}
+
+#toolbar input,
+#toolbar button {
+	margin: 5px;
+}
+
+#textInputContainer {
+	display: none;
+}
+
+#liveTextInput {
+	display: none;
+	position: absolute;
+	border: none;
+	font: 24px Arial;
+	outline: none;
+	background: transparent;
+	border-radius: 10px;
+}
