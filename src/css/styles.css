@@ -6,6 +6,7 @@ html {
 	width: 100%;
 	height: 100%;
 	cursor: default;
+	font-family: 'Cabin', sans-serif;
 }
 
 canvas {
@@ -20,12 +21,20 @@ canvas {
 	position: absolute;
 	top: 10px;
 	left: 10px;
-	background-color: #E6E6E6;
+	background-color: #f2f2f2;
 	padding: 10px;
-	border-radius: 5px;
+	border-radius: 10px;
 	box-shadow: inset 0 0 0.5px 1px hsl(0, 0%, 50%, 0.075), 0 0 0 1px hsla(0, 0%, 0%, 0.05), 0 0.3px 0.4px hsla(0, 0%, 0%, 0.02), 0 0.9px 1.5px hsla(0, 0%, 0%, 0.045), 0 3.5px 6px hsla(0, 0%, 0%, 0.09);
 	z-index: 1000;
 }
+
+#optionsContainer {
+	padding: 20px;
+	background-color: #f9f9f9;
+	border-radius: 10px;
+	margin-top: 10px;
+	box-shadow: inset 0 0 0.5px 1px hsl(0, 0%, 50%, 0.075), 0 0 0 1px hsla(0, 0%, 0%, 0.05), 0 0.3px 0.4px hsla(0, 0%, 0%, 0.02), 0 0.9px 1.5px hsla(0, 0%, 0%, 0.045), 0 3.5px 6px hsla(0, 0%, 0%, 0.09);
+  }
 
 #toolbar input,
 #toolbar button {
@@ -44,4 +53,205 @@ canvas {
 	outline: none;
 	background: transparent;
 	border-radius: 10px;
+}
+
+button {
+	display: inline-block;
+	background-color: #c3c6da;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 12px;
+	font-size: 16px;
+	cursor: pointer;
+	transition: background-color 0.3s ease, transform 0.2s ease;
+	margin: 5px 0;
+}
+
+/* Hover effect */
+button:hover {
+	background-color: #DFE0E7;
+	transform: translateY(-2px);
+}
+
+/* Active button effect */
+button:active {
+	background-color: #5962a1;
+	transform: translateY(1px);
+}
+
+/* Disabled button style */
+button:disabled {
+	background-color: #f2f2f2;
+	border: 1px solid #171717;
+	color: #171717;
+	cursor: not-allowed;
+}
+
+input[type="color"] {
+	cursor: pointer;
+	border: none;
+	height: 40px;
+	width: 40px;
+	border-radius: 5px;
+	padding: 0;
+	background: none;
+}
+
+/* Styling the slider container */
+.slider-container {
+	width: 100%;
+	padding: 10px 0;
+}
+
+/* General styles for the range input (slider) */
+input[type="range"] {
+	-webkit-appearance: none;
+	width: 100%;
+	height: 12px;
+	border-radius: 10px;
+	background: linear-gradient(to right, #5962a1 0%, #5962a1 var(--slider-percentage), #E6E6E6 var(--slider-percentage), #E6E6E6 100%);
+	outline: none;
+	transition: background 0.3s ease;
+}
+
+/* Custom thumb (the handle you drag) */
+input[type="range"]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	width: 20px;
+	height: 20px;
+	margin-top: -4px;
+	border-radius: 50%;
+	background-color: #171717;
+	border: 2px solid #171717;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+	cursor: pointer;
+	transition: transform 0.2s ease;
+}
+
+/* Thumb hover effect */
+input[type="range"]::-webkit-slider-thumb:hover {
+	transform: scale(1.2);
+}
+
+/* Active thumb effect (while dragging) */
+input[type="range"]:active::-webkit-slider-thumb {
+	transform: scale(1.3);
+	background-color: #171717; /* Slightly darker shade */
+}
+
+/* WebKit track style */
+input[type="range"]::-webkit-slider-runnable-track {
+	-webkit-appearance: none;
+	height: 12px;
+	border-radius: 10px;
+	background: transparent;
+}
+
+select {
+	width: 100%;
+	padding: 10px;
+	border-radius: 5px;
+	border: 1px solid #171717;
+	background-color: #E6E6E6;
+	font-size: 16px;
+	color: #171717;
+	outline: none;
+	cursor: pointer;
+	transition: background-color 0.3s ease, border-color 0.3s ease;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover effect for the dropdown */
+select:hover {
+	background-color: #E8E9ED;
+	border-color: #5962a1;
+}
+
+/* Focus/Active state (when clicked) */
+select:focus {
+	background-color: #E6E6E6;
+	border-color: #5962a1;
+	box-shadow: 0 0 5px rgba(89, 98, 161, 0.5); /* Green glow */
+}
+
+/* Option styles (visible in dropdown menu) */
+option {
+	padding: 10px;
+	font-size: 16px;
+	color: #171717;
+	background-color: #E6E6E6;
+}
+
+
+#toolbar label {
+	display: block;
+	margin-bottom: 5px;
+}
+
+#toolbar input[type="color"], #toolbar input[type="number"], #toolbar select {
+	margin-bottom: 15px;
+}
+
+#toolbar img {
+	width: 25px;
+}
+
+/* Style for the preset color circles */
+#presetColors {
+	margin-bottom: 15px;
+}
+
+.color-circle {
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	margin-right: 10px;
+	cursor: pointer;
+	border: 2px solid #E6E6E6;
+	transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+/* Hover effect for color circles */
+.color-circle:hover {
+	transform: scale(1.1); /* Slight zoom-in effect on hover */
+	border-color: #171717; /* Darken the border on hover */
+}
+
+#colorPicker {
+	margin-left: 10px;
+	width: 40px;
+	height: 40px;
+	border: 2px solid #E6E6E6;
+	border-radius: 50px;
+	cursor: pointer;
+	transition: transform 0.2s ease;
+}
+
+#colorPicker::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+
+#colorPicker::-webkit-color-swatch {
+	border: none;
+	border-radius: 50px;
+}
+
+#colorPicker:hover {
+	transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+#closeButton {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	background-color: #c3c6da;
+	border: none;
+	border-radius: 5px;
+	padding: 5px 10px;
+	font-size: 16px;
+	cursor: pointer;
+	transition: background-color 0.3s ease, transform 0.2s ease;
+	color: #171717;
 }

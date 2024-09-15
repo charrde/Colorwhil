@@ -1,4 +1,4 @@
-const { app, BrowserWindow, globalShortcut, screen } = require('electron');
+const { app, BrowserWindow, globalShortcut, screen, ipcMain } = require('electron');
 
 let mainWindow;
 let isClickThrough = false;
@@ -30,6 +30,10 @@ app.whenReady().then(() => {
 	mainWindow.on('closed', () => {
 		mainWindow = null;
 	});
+});
+
+ipcMain.on('app-quit', () => {
+	app.quit();
 });
 
 app.on('window-all-closed', () => {

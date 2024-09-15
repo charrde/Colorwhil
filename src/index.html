@@ -4,52 +4,45 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Screen Drawing App</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
 	<link rel="stylesheet" href="css/styles.css">
 	<script type="module" src="js/app.js" defer></script>
 </head>
 <body>
 	<div id="toolbar">
-		<label for="colorPicker">Color:</label>
+		<button id="closeButton">X</button>
+		<br>
+		<!-- General Tool Controls -->
 		<input type="color" id="colorPicker" value="#000000">
-		<br>
-
-		<!-- Custom Brush Size Input -->
-		<label for="customBrushSize">Brush Size (px):</label>
-		<input type="number" id="customBrushSize" min="1" value="5">
-		<br>
-
-		<!-- Dropdown for Preset Brush Sizes -->
-		<label for="brushSize">Preset Brush Sizes:</label>
-		<select id="brushSize">
-			<option value="2">2 px</option>
-			<option value="4">4 px</option>
-			<option value="8">8 px</option>
-			<option value="16">16 px</option>
-			<option value="32">32 px</option>
-			<option value="64">64 px</option>
-		</select>
-		<br>
+		<div id="presetColors">
+			<span class="color-circle" data-color="#FF0000" style="background-color: #FF0000;"></span>
+			<span class="color-circle" data-color="#00FF00" style="background-color: #00FF00;"></span>
+			<span class="color-circle" data-color="#0000FF" style="background-color: #0000FF;"></span>
+			<span class="color-circle" data-color="#FFFF00" style="background-color: #FFFF00;"></span>
+			<span class="color-circle" data-color="#FF00FF" style="background-color: #FF00FF;"></span>
+			<span class="color-circle" data-color="#00FFFF" style="background-color: #00FFFF;"></span>
+		</div>
 
 		<!-- Add Clear, Undo, Redo buttons -->
-		<button id="clearCanvas">Clear Canvas</button>
-		<button id="undo">Undo</button>
-		<button id="redo">Redo</button>
-		<br>
-		<!-- Add Eraser and Brush buttons -->
-		<button id="eraser">Eraser</button>
-		<button id="brush">Square Brush</button>
-		<button id="circleBrush">Circle Brush</button>
-		<br>
+		<button id="clearCanvas" class="tool-button"><img src="icons/clear_canvas.svg"></button>
+		<button id="undo"><img src="icons/undo.svg"></button>
+		<button id="redo"><img src="icons/redo.svg"></button>
 
-		<!-- Add Text Tool and Text Input -->
-		<button id="textTool">Text Tool</button>
-		<div id="textInputContainer">
-			<label for="fontSize">Font Size:</label>
-			<input type="number" id="fontSize" min="10" value="30" />
-			<br>
+		<!-- Tool Buttons (Eraser, Brush, Text) -->
+		<button id="eraserTool" class="tool-button"><img src="icons/eraser.svg"></button>
+		<button id="brushTool" class="tool-button"><img src="icons/paint_brush.svg"></button>
+		<button id="textTool" class="tool-button"><img src="icons/text_tool.svg"></button>
+		<button id="mouseTool" class="tool-button" disabled><img src="icons/mouse.svg"></button>
+
+		<!-- Tool-Specific Options will be loaded here dynamically -->
+		<div id="optionsContainer">
+		<!-- Tool-specific options like brush size, eraser size, or text settings will appear here -->
 		</div>
 	</div>
 	<canvas id="drawCanvas"></canvas>
-	<input id="liveTextInput" type="text" />
+	<input id="liveTextInput" type="text" style="display: none;" />
 </body>
 </html>
